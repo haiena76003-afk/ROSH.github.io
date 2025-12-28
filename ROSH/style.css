@@ -1,0 +1,170 @@
+/* 1. 기본 배경 및 레이아웃 (홈 페이지 기준) */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Pretendard', sans-serif;
+    overflow: hidden; /* 기본적으로 스크롤 방지 */
+}
+
+/* 2. 상단 네비게이션 바 (모든 페이지 공통) */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 1000; /* 메뉴가 항상 위에 보이게 */
+}
+
+/* 로고 스타일 */
+.logo {
+    width: 180px; /* 요청하신 대로 180px 설정 */
+    height: auto;
+    filter: invert(1); /* 검은 로고를 흰색으로 */
+}
+
+/* 오른쪽 메뉴 스타일 */
+.menu-area a {
+    margin-left: 30px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.menu-area a:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* 3. 중앙 문구 및 컨테이너 (홈/공지 공통) */
+.container {
+    text-align: center;
+    z-index: 1;
+}
+
+/* 홈 페이지 전용 애니메이션 문구 */
+.welcome-text {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.sub-text {
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: fadeIn 2.5s ease-in 0.8s forwards;
+}
+
+/* 4. 공지사항 전용 레이아웃 (둥근 모서리 + 그림자) */
+.notice-container {
+    margin-top: 80px; /* 상단 바 공간 확보 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto; /* 공지 길어지면 스크롤 허용 */
+}
+
+/* 공지사항 스크롤바 디자인 (선택사항) */
+.notice-container::-webkit-scrollbar {
+    width: 6px;
+}
+.notice-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* 공지사항 & 작성 폼 박스 */
+.notice-item, .create-form {
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px; /* ★ 꼭짓점 둥글게 ★ */
+    padding: 25px;
+    margin-bottom: 20px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* ★ 그림자 효과 ★ */
+    transition: transform 0.3s ease;
+}
+
+.notice-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.notice-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #00ffcc;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* 5. 공지 작성 페이지 전용 (입력창/버튼) */
+.input-group {
+    margin-bottom: 20px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00ffcc;
+}
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-sizing: border-box;
+    /* 추가된 복사 설정: 마우스 커서를 글자 선택용으로 변경 */
+    cursor: text !important;
+}
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(135deg, #00ffcc, #0099ff);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.submit-btn:hover {
+    transform: scale(1.02);
+}
+
+.back-link {
+    color: #ffffff;
+    opacity: 0.5;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* 6. 애니메이션 정의 */
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.5; }
+}
