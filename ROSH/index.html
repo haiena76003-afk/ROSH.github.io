@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>준비 중</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 📢 저작권 문구 전용 스타일: 절대 위치로 맨 아래 고정 */
+        .footer-text {
+            position: fixed; /* 화면 하단에 고정 */
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            opacity: 0.3;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            
+            /* 📢 요청하신 클릭 금지 및 복사 금지 설정 */
+            user-select: none;         /* 드래그/복사 방지 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            pointer-events: none;      /* 클릭 무시 */
+            z-index: 100;
+        }
+
+        /* 메인 컨테이너 위치 보정 (버튼이 빠진 만큼 중앙 정렬) */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
@@ -18,12 +48,17 @@
             <a href="#">무료배포</a>
             <a href="#">채용</a>
             <a href="#">점검시간</a>
+            <a href="#">협력팀</a>
         </nav>
     </header>
 
     <div class="container">
         <h1 class="welcome-text">만나서 반가워요 👋</h1>
         <p class="sub-text">서비스를 준비하고있어 오래걸리는점 양해부탁드립니다!</p>
+    </div>
+
+    <div class="footer-text">
+        © ROSH. All rights reserved.
     </div>
     
     <script src="main.js"></script>
